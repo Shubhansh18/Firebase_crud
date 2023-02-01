@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FirebaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('users', [FirebaseController::class, 'index']);
+Route::post('users', [FirebaseController::class, 'store']);
+Route::put('users',[FirebaseController::class, 'update']);
+Route::delete('users',[FirebaseController::class, 'delete']);
